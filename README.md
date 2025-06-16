@@ -1,29 +1,38 @@
-# 🌾 Agro Web - https://agro-web-iota.vercel.app
+# 🌿 Agro Web
 
-Aplicação web para gerenciamento agrícola. Permite o cadastro e visualização de produtores rurais, propriedades e culturas (safras). Desenvolvido com Next.js 14 App Router, TypeScript, Zustand e TanStack Table.
+Frontend do sistema agrícola desenvolvido com **Next.js**, **TypeScript**, **Zustand** e **TailwindCSS**. Esta aplicação consome a [API Brain Agriculture](https://brain-agriculture-vum0.onrender.com/api) para exibir e gerenciar produtores, propriedades e culturas.
 
+---
 
+## 🚀 Tecnologias
 
-## 🚀 Tecnologias Utilizadas
-
-- [Next.js 14 (App Router)](https://nextjs.org/)
+- [Next.js](https://nextjs.org/)
+- [React](https://react.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
-- [Zustand](https://github.com/pmndrs/zustand)
+- [Zustand](https://zustand-demo.pmnd.rs/)
+- [TailwindCSS](https://tailwindcss.com/)
 - [TanStack Table](https://tanstack.com/table)
-- [ShadCN UI](https://ui.shadcn.dev/)
-- [Tailwind CSS](https://tailwindcss.com/)
 
-## 🧱 Funcionalidades
+---
 
-- ✅ Listagem paginada de produtores e culturas
-- ✅ Criação e edição via modais
-- ✅ Integração com API REST (Nest.js)
-- ✅ Gerenciamento de estado global com Zustand
-- ✅ UI moderna e reutilizável com componentes do ShadCN
+## 💻 Como rodar
 
-## 📦 Instalação
+### ⚙️ Pré-requisitos
+
+- Node.js 18+
+- [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/)
+
+### ▶️ Rodando o projeto
 
 ```bash
-git clone https://github.com/seu-usuario/agro-web.git
+# 1. Clone o repositório
+git clone https://github.com/solebellsBEACH/agro-web.git
 cd agro-web
-npm install
+
+# 2. Instale as dependências
+yarn
+
+# 3. Rode o projeto em modo desenvolvimento
+yarn dev
+
+# O app estará disponível em http://localhost:3000
