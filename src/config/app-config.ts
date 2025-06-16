@@ -1,11 +1,11 @@
 import packageJson from "../../package.json";
 
 export const APP_CONFIG = {
-  name: "Studio Admin",
-  version: packageJson.version,
-  meta: {
-    title: "Studio Admin - Modern Next.js Dashboard Starter Template",
-    description:
-      "Studio Admin is a modern, open-source dashboard starter template built with Next.js 15, Tailwind CSS v4, and shadcn/ui. Perfect for SaaS apps, admin panels, and internal tools—fully customizable and production-ready.",
-  },
+name: "Brain Agriculture - Teste Técnico v2",
+version: packageJson.version,
+meta: {
+  title: "Brain Agriculture - Teste Técnico v2",
+  description:
+    "Este projeto é parte do processo seletivo da Brain Agriculture. O objetivo é avaliar habilidades em resolução de problemas, interpretação de requisitos, aplicação de boas práticas de desenvolvimento, escalabilidade, confiabilidade e clareza na documentação. A aplicação deve ser pensada para uso por clientes, parceiros ou outros desenvolvedores, com atenção aos detalhes, qualidade e manutenibilidade do código.",
+}
 };
