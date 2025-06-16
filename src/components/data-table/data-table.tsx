@@ -27,7 +27,7 @@ export function DataTable<TData, TValue>({
   sortableId,
 }: DataTableProps<TData, TValue>) {
   const tableContent = (
-    <Table>
+    <Table className="mt-2">
       <TableHeader className="bg-muted sticky top-0 z-10">
         {table.getHeaderGroups().map((headerGroup) => (
           <TableRow key={headerGroup.id}>
