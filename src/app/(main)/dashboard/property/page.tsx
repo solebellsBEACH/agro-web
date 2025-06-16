@@ -17,7 +17,7 @@ export default function Properties() {
   const [editingProperty, setEditingProperty] = useState<Partial<Property> | null>(null);
 
   const [pagination, setPagination] = useState<PaginationState>({
-    pageIndex: page - 1, // Convertendo para 0-based
+    pageIndex: page - 1,
     pageSize: 10,
   });
 
@@ -62,6 +62,7 @@ export default function Properties() {
   return (
     <>
       <CreateHeader
+      label="Criar Propriedade"
         onCreate={() => {
           setEditingProperty(null);
           setModalOpen(true);
