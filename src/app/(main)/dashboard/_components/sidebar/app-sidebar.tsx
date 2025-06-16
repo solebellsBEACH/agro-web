@@ -14,6 +14,7 @@ import { APP_CONFIG } from "@/config/app-config";
 import { sidebarItems } from "@/navigation/sidebar/sidebar-items";
 
 import { NavMain } from "./nav-main";
+
 const data = {
   navSecondary: [
     {

@@ -1,9 +1,8 @@
 import { ColumnDef } from "@tanstack/react-table";
-
-import { Property } from "@/lib/entities/property.entity";
+import { Pencil, Trash } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { Pencil, Trash } from "lucide-react";
+import { Property } from "@/lib/entities/property.entity";
 
 export function propertyColumns({
   onEdit,
@@ -60,19 +59,11 @@ export function propertyColumns({
         const property = row.original;
         return (
           <div className="flex justify-end gap-2">
-            <Button
-              size="icon"
-              variant="outline"
-              onClick={() => onEdit(property)}
-            >
-              <Pencil className="w-4 h-4" />
+            <Button size="icon" variant="outline" onClick={() => onEdit(property)}>
+              <Pencil className="h-4 w-4" />
             </Button>
-            <Button
-              size="icon"
-              variant="destructive"
-              onClick={() => onDelete(property)}
-            >
-              <Trash className="w-4 h-4" />
+            <Button size="icon" variant="destructive" onClick={() => onDelete(property)}>
+              <Trash className="h-4 w-4" />
             </Button>
           </div>
         );
@@ -80,7 +71,6 @@ export function propertyColumns({
     },
   ];
 }
-
 
 export const mockProperties: Property[] = [
   {

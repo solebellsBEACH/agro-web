@@ -1,10 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Producer } from "@/lib/entities/producer.entity";
+
+import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { Producer } from "@/lib/entities/producer.entity";
 
 type ProducerModalProps = {
   open: boolean;
@@ -43,7 +44,9 @@ export function ProducerModal({ open, onClose, onSave, initialData = {} }: Produ
         </div>
 
         <DialogFooter>
-          <Button variant="outline" onClick={onClose}>Cancelar</Button>
+          <Button variant="outline" onClick={onClose}>
+            Cancelar
+          </Button>
           <Button onClick={handleSubmit}>{form.id ? "Salvar" : "Criar"}</Button>
         </DialogFooter>
       </DialogContent>

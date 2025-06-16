@@ -1,7 +1,8 @@
 import { ColumnDef } from "@tanstack/react-table";
-import { Crop } from "@/lib/entities/crop.entity";
-import { Button } from "@/components/ui/button";
 import { Pencil, Trash } from "lucide-react";
+
+import { Button } from "@/components/ui/button";
+import { Crop } from "@/lib/entities/crop.entity";
 
 export function cropColumns({
   onEdit,
@@ -47,12 +48,12 @@ export function cropColumns({
       cell: ({ row }) => {
         const crop = row.original;
         return (
-          <div className="flex gap-2 justify-end">
+          <div className="flex justify-end gap-2">
             <Button size="icon" variant="outline" onClick={() => onEdit(crop)}>
-              <Pencil className="w-4 h-4" />
+              <Pencil className="h-4 w-4" />
             </Button>
             <Button size="icon" variant="destructive" onClick={() => onDelete(crop)}>
-              <Trash className="w-4 h-4" />
+              <Trash className="h-4 w-4" />
             </Button>
           </div>
         );

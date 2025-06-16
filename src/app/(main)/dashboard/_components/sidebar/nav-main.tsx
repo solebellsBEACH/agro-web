@@ -1,10 +1,19 @@
-'use client';
+"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+
 import { ChevronRight } from "lucide-react";
 
-import { SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@/components/ui/sidebar";
+import {
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarGroupLabel,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  useSidebar,
+} from "@/components/ui/sidebar";
 import { type NavGroup, type NavMainItem } from "@/navigation/sidebar/sidebar-items";
 
 interface NavMainProps {
@@ -17,12 +26,7 @@ const IsComingSoon = () => (
 
 const NavItem = ({ item, isActive }: { item: NavMainItem; isActive: (url: string) => boolean }) => (
   <SidebarMenuItem key={item.title}>
-    <SidebarMenuButton
-      asChild
-      aria-disabled={item.comingSoon}
-      isActive={isActive(item.url)}
-      tooltip={item.title}
-    >
+    <SidebarMenuButton asChild aria-disabled={item.comingSoon} isActive={isActive(item.url)} tooltip={item.title}>
       <Link href={item.url} target={item.newTab ? "_blank" : undefined}>
         {item.icon && <item.icon />}
         <span>{item.title}</span>

@@ -1,10 +1,11 @@
 "use client";
 
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
+import { useState, useEffect } from "react";
+
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Property } from "@/lib/entities/property.entity";
-import { useState, useEffect } from "react";
 
 type PropertyModalProps = {
   open: boolean;
@@ -45,14 +46,40 @@ export function PropertyModal({ open, onClose, onSave, initialData = {} }: Prope
           <Input name="name" placeholder="Nome" value={form.name || ""} onChange={handleChange} />
           <Input name="city" placeholder="Cidade" value={form.city || ""} onChange={handleChange} />
           <Input name="state" placeholder="Estado" value={form.state || ""} onChange={handleChange} />
-          <Input name="total_area" placeholder="Área total" type="number" value={form.total_area ?? ""} onChange={handleChange} />
-          <Input name="arable_area" placeholder="Área agricultável" type="number" value={form.arable_area ?? ""} onChange={handleChange} />
-          <Input name="vegetation_area" placeholder="Área de vegetação" type="number" value={form.vegetation_area ?? ""} onChange={handleChange} />
-          <Input name="machinery_count" placeholder="Máquinas" type="number" value={form.machinery_count ?? ""} onChange={handleChange} />
+          <Input
+            name="total_area"
+            placeholder="Área total"
+            type="number"
+            value={form.total_area ?? ""}
+            onChange={handleChange}
+          />
+          <Input
+            name="arable_area"
+            placeholder="Área agricultável"
+            type="number"
+            value={form.arable_area ?? ""}
+            onChange={handleChange}
+          />
+          <Input
+            name="vegetation_area"
+            placeholder="Área de vegetação"
+            type="number"
+            value={form.vegetation_area ?? ""}
+            onChange={handleChange}
+          />
+          <Input
+            name="machinery_count"
+            placeholder="Máquinas"
+            type="number"
+            value={form.machinery_count ?? ""}
+            onChange={handleChange}
+          />
         </div>
 
         <DialogFooter>
-          <Button variant="outline" onClick={onClose}>Cancelar</Button>
+          <Button variant="outline" onClick={onClose}>
+            Cancelar
+          </Button>
           <Button onClick={handleSubmit}>{form.id ? "Salvar" : "Criar"}</Button>
         </DialogFooter>
       </DialogContent>

@@ -1,17 +1,18 @@
-'use client';
+"use client";
 
 import { useEffect, useState } from "react";
-import { Crop } from "@/lib/entities/crop.entity";
+
 import { getCoreRowModel, useReactTable, PaginationState } from "@tanstack/react-table";
 
-import { CreateHeader } from "@/components/ui/create-header";
 import { DataTable } from "@/components/data-table/data-table";
 import { DataTablePagination } from "@/components/data-table/data-table-pagination";
-import { useCropStore } from "@/store/crops.store";
+import { CreateHeader } from "@/components/ui/create-header";
+import { Crop } from "@/lib/entities/crop.entity";
 import { createCrop, deleteCrop, updateCrop } from "@/lib/services/crop.service";
+import { useCropStore } from "@/store/crops.store";
+
 import { cropColumns } from "./_components/columns";
 import { CropModal } from "./_components/CropModal";
-
 
 export default function CropsPage() {
   const { crops, fetchCrops, page, lastPage, loading } = useCropStore();
@@ -26,7 +27,7 @@ export default function CropsPage() {
 
   useEffect(() => {
     fetchCrops(pagination.pageIndex + 1, pagination.pageSize);
-  }, [pagination]);
+  }, [fetchCrops, pagination]);
 
   const handleEdit = (crop: Crop) => {
     setEditingCrop(crop);
@@ -51,7 +52,7 @@ export default function CropsPage() {
   };
 
   const table = useReactTable({
-    data: crops||[],
+    data: crops ?? [],
     columns: cropColumns({ onEdit: handleEdit, onDelete: handleDelete }),
     getCoreRowModel: getCoreRowModel(),
     manualPagination: true,
@@ -62,12 +63,13 @@ export default function CropsPage() {
 
   return (
     <>
-      <CreateHeader 
-      label="Criar Safra"
-      onCreate={() => {
-        setEditingCrop(null);
-        setModalOpen(true);
-      }} />
+      <CreateHeader
+        label="Criar Safra"
+        onCreate={() => {
+          setEditingCrop(null);
+          setModalOpen(true);
+        }}
+      />
 
       {loading ? (
         <p>Carregando...</p>
@@ -82,7 +84,7 @@ export default function CropsPage() {
         open={isModalOpen}
         onClose={() => setModalOpen(false)}
         onSave={handleSave}
-        initialData={editingCrop || {}}
+        initialData={editingCrop ?? {}}
       />
     </>
   );

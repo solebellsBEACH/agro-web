@@ -1,15 +1,18 @@
-'use client';
+"use client";
 
-import { Property } from "@/lib/entities/property.entity";
-import { usePropertyStore } from "@/store/property.store";
+import { useEffect, useState } from "react";
+
 import { getCoreRowModel, useReactTable, PaginationState } from "@tanstack/react-table";
-import { CreateHeader } from "@/components/ui/create-header";
+
 import { DataTable } from "@/components/data-table/data-table";
 import { DataTablePagination } from "@/components/data-table/data-table-pagination";
-import { PropertyModal } from "./_components/PropertyModal";
-import { useEffect, useState } from "react";
-import { propertyColumns as getPropertyColumns } from "./_components/columns";
+import { CreateHeader } from "@/components/ui/create-header";
+import { Property } from "@/lib/entities/property.entity";
 import { createProperty, deleteProperty, updateProperty } from "@/lib/services/property.service";
+import { usePropertyStore } from "@/store/property.store";
+
+import { propertyColumns as getPropertyColumns } from "./_components/columns";
+import { PropertyModal } from "./_components/PropertyModal";
 
 export default function Properties() {
   const { fetchProperties, properties, loading, lastPage, page, total } = usePropertyStore();
@@ -62,7 +65,7 @@ export default function Properties() {
   return (
     <>
       <CreateHeader
-      label="Criar Propriedade"
+        label="Criar Propriedade"
         onCreate={() => {
           setEditingProperty(null);
           setModalOpen(true);

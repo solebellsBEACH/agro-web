@@ -1,12 +1,13 @@
 "use client";
 
-import { Crop } from "@/lib/entities/crop.entity";
+import { useEffect, useState } from "react";
+
+import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { useEffect, useState } from "react";
-import { usePropertyStore } from "@/store/property.store";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
+import { Crop } from "@/lib/entities/crop.entity";
+import { usePropertyStore } from "@/store/property.store";
 
 type CropModalProps = {
   open: boolean;
@@ -21,10 +22,10 @@ export function CropModal({ open, onClose, onSave, initialData = {} }: CropModal
     propertyId: initialData.property?.id,
   });
 
-  const { properties, fetchProperties} = usePropertyStore();
+  const { properties, fetchProperties } = usePropertyStore();
 
   useEffect(() => {
-    fetchProperties()
+    fetchProperties();
     setForm({
       ...initialData,
       propertyId: initialData.property?.id,
@@ -53,11 +54,41 @@ export function CropModal({ open, onClose, onSave, initialData = {} }: CropModal
 
         <div className="grid gap-4 py-4">
           <Input name="name" placeholder="Nome" value={form.name || ""} onChange={handleChange} />
-          <Input name="harvest_year" placeholder="Ano da Safra" type="number" value={form.harvest_year ?? ""} onChange={handleChange} />
-          <Input name="value_per_unit" placeholder="Valor por unidade" type="number" value={form.value_per_unit ?? ""} onChange={handleChange} />
-          <Input name="utilization_percentage" placeholder="% de utilização" type="number" value={form.utilization_percentage ?? ""} onChange={handleChange} />
-          <Input name="expected_yield" placeholder="Produtividade esperada" type="number" value={form.expected_yield ?? ""} onChange={handleChange} />
-          <Input name="value_growth" placeholder="% crescimento" type="number" value={form.value_growth ?? ""} onChange={handleChange} />
+          <Input
+            name="harvest_year"
+            placeholder="Ano da Safra"
+            type="number"
+            value={form.harvest_year ?? ""}
+            onChange={handleChange}
+          />
+          <Input
+            name="value_per_unit"
+            placeholder="Valor por unidade"
+            type="number"
+            value={form.value_per_unit ?? ""}
+            onChange={handleChange}
+          />
+          <Input
+            name="utilization_percentage"
+            placeholder="% de utilização"
+            type="number"
+            value={form.utilization_percentage ?? ""}
+            onChange={handleChange}
+          />
+          <Input
+            name="expected_yield"
+            placeholder="Produtividade esperada"
+            type="number"
+            value={form.expected_yield ?? ""}
+            onChange={handleChange}
+          />
+          <Input
+            name="value_growth"
+            placeholder="% crescimento"
+            type="number"
+            value={form.value_growth ?? ""}
+            onChange={handleChange}
+          />
 
           <Select
             value={form.propertyId}
@@ -77,7 +108,9 @@ export function CropModal({ open, onClose, onSave, initialData = {} }: CropModal
         </div>
 
         <DialogFooter>
-          <Button variant="outline" onClick={onClose}>Cancelar</Button>
+          <Button variant="outline" onClick={onClose}>
+            Cancelar
+          </Button>
           <Button onClick={handleSubmit}>{form.id ? "Salvar" : "Criar"}</Button>
         </DialogFooter>
       </DialogContent>

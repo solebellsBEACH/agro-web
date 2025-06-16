@@ -1,10 +1,4 @@
-import {
-  LeafIcon,
-  UserRound,
-  ChartPie,
-  HomeIcon,
-  type LucideIcon,
-} from "lucide-react";
+import { LeafIcon, UserRound, ChartPie, HomeIcon, type LucideIcon } from "lucide-react";
 
 export interface NavMainItem {
   title: string;
