@@ -1,22 +1,4 @@
-import {
-  Home,
-  ChartPie,
-  Grid2X2,
-  ChartLine,
-  ShoppingBag,
-  BookA,
-  Forklift,
-  Mail,
-  MessageSquare,
-  Calendar,
-  Kanban,
-  ReceiptText,
-  Users,
-  Lock,
-  Fingerprint,
-  SquareArrowUpRight,
-  type LucideIcon,
-} from "lucide-react";
+import { AppWindow, ChartPie, Fingerprint, HomeIcon, type LucideIcon } from "lucide-react";
 
 export interface NavSubItem {
   title: string;
@@ -49,43 +31,42 @@ export const sidebarItems: NavGroup[] = [
       {
         title: "Dashboards",
         url: "/dashboard",
-        icon: Home,
+        icon: AppWindow,
         subItems: [
           { title: "Default", url: "/dashboard/default", icon: ChartPie },
-          { title: "CRM", url: "/dashboard", icon: Grid2X2, comingSoon: true },
-          { title: "Analytics", url: "/dashboard/analytics", icon: ChartLine, comingSoon: true },
-          { title: "eCommerce", url: "/dashboard/e-commerce", icon: ShoppingBag, comingSoon: true },
-          { title: "Academy", url: "/dashboard/academy", icon: BookA, comingSoon: true },
-          { title: "Logistics", url: "/dashboard/logistics", icon: Forklift, comingSoon: true },
+          {
+            title: "Propriedades",
+            url: "/dashboard/property",
+            icon: HomeIcon,
+          },
         ],
       },
     ],
   },
-  {
-    id: 2,
-    label: "Pages",
-    items: [
-      {
-        title: "Authentication",
-        url: "/auth",
-        icon: Fingerprint,
-        subItems: [
-          { title: "Login v1", url: "/auth/v1/login", newTab: true },
-          { title: "Register v1", url: "/auth/v1/register", newTab: true },
-        ],
-      },
-    ],
-  },
-  {
-    id: 3,
-    label: "Misc",
-    items: [
-      {
-        title: "Others",
-        url: "/others",
-        icon: SquareArrowUpRight,
-        comingSoon: true,
-      },
-    ],
-  },
+  // {
+  //   id: 2,
+  //   label: "Propriedades",
+  //   items: [
+  //     {
+  //       title: "Propriedades",
+  //       url: "/property",
+  //       icon: HomeIcon,
+  //     },
+  //   ],
+  // },
+  //  {
+  //   id: 3,
+  //   label: "Pages",
+  //   items: [
+  //     {
+  //       title: "Authentication",
+  //       url: "/auth",
+  //       icon: Fingerprint,
+  //       subItems: [
+  //         { title: "Login v1", url: "/auth/v1/login", newTab: true },
+  //         { title: "Register v1", url: "/auth/v1/register", newTab: true },
+  //       ],
+  //     },
+  //   ],
+  // },
 ];
