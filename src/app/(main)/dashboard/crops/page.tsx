@@ -13,6 +13,7 @@ import { useCropStore } from "@/store/crops.store";
 
 import { cropColumns } from "./_components/columns";
 import { CropModal } from "./_components/CropModal";
+import { LoadingSpinner } from "@/components/ui/loading-spinner";
 
 export default function CropsPage() {
   const { crops, fetchCrops, page, lastPage, loading } = useCropStore();
@@ -72,7 +73,7 @@ export default function CropsPage() {
       />
 
       {loading ? (
-        <p>Carregando...</p>
+       <LoadingSpinner/>
       ) : (
         <>
           <DataTable table={table} columns={cropColumns({ onEdit: handleEdit, onDelete: handleDelete })} />
