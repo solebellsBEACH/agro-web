@@ -7,6 +7,7 @@ import { usePropertyStore } from "@/store/property.store";
 
 import { ChartAreaInteractive } from "./_components/chart-area-interactive";
 import { SectionCards } from "./_components/section-cards";
+import { LoadingSpinner } from "@/components/ui/loading-spinner";
 
 export default function Page() {
   const { fetchCrops, crops, loading } = useCropStore();
@@ -18,7 +19,7 @@ export default function Page() {
   }, []);
 
   if (!crops || loading || !properties) {
-    return <h1>Loading</h1>;
+    return <LoadingSpinner/>;
   }
 
   return (

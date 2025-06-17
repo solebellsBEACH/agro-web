@@ -13,6 +13,7 @@ import { usePropertyStore } from "@/store/property.store";
 
 import { propertyColumns as getPropertyColumns } from "./_components/columns";
 import { PropertyModal } from "./_components/PropertyModal";
+import { LoadingSpinner } from "@/components/ui/loading-spinner";
 
 export default function Properties() {
   const { fetchProperties, properties, loading, lastPage, page, total } = usePropertyStore();
@@ -73,7 +74,7 @@ export default function Properties() {
       />
 
       {loading || !properties ? (
-        <h1>Loading</h1>
+       <LoadingSpinner/>
       ) : properties.length > 0 ? (
         <div>
           <DataTable table={table} columns={columns} />

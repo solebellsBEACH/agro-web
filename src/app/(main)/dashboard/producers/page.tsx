@@ -13,6 +13,7 @@ import { useProducerStore } from "@/store/producer.store";
 
 import { producerColumns } from "./_components/columns";
 import { ProducerModal } from "./_components/ProducerModal";
+import { LoadingSpinner } from "@/components/ui/loading-spinner";
 
 export default function ProducersPage() {
   const { producers, fetchProducers, page, lastPage, loading } = useProducerStore();
@@ -72,7 +73,7 @@ export default function ProducersPage() {
       />
 
       {loading ? (
-        <p>Carregando...</p>
+      <LoadingSpinner/>
       ) : (
         <>
           <DataTable table={table} columns={producerColumns({ onEdit: handleEdit, onDelete: handleDelete })} />
