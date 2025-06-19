@@ -1,15 +1,26 @@
 import { TrendingUp } from "lucide-react";
-
 import { Badge } from "@/components/ui/badge";
-import { Card, CardAction, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardAction,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle
+} from "@/components/ui/card";
 import { Crop } from "@/lib/entities/crop.entity";
 
 export function SectionCards({ data }: { data: Crop[] }) {
   return (
-    <div className="*:data-[slot=card]:from-primary/5 *:data-[slot=card]:to-card dark:*:data-[slot=card]:bg-card grid grid-cols-1 gap-4 *:data-[slot=card]:bg-gradient-to-t *:data-[slot=card]:shadow-xs @xl/main:grid-cols-2 @5xl/main:grid-cols-4">
-      {data.map((item) => {
-        return (
-          <Card key={`${item.id}-section-card`} className="@container/card">
+    <section className="space-y-4">
+      <h2 className="text-xl font-semibold tracking-tight text-primary">Culturas em destaque</h2>
+
+      <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-muted scrollbar-track-transparent snap-x">
+        {data.map((item) => (
+          <Card
+            key={`${item.id}-section-card`}
+            className="min-w-[250px] shrink-0 snap-start @container/card"
+          >
             <CardHeader>
               <CardDescription>
                 {item.name} - Ano {item.harvest_year}
@@ -29,11 +40,13 @@ export function SectionCards({ data }: { data: Crop[] }) {
                 Crescimento Mensal <TrendingUp className="size-4" />
                 {item.value_growth}%
               </div>
-              <div className="text-muted-foreground">{item.utilization_percentage}% de utilização por lote</div>
+              <div className="text-muted-foreground">
+                {item.utilization_percentage}% de utilização por lote
+              </div>
             </CardFooter>
           </Card>
-        );
-      })}
-    </div>
+        ))}
+      </div>
+    </section>
   );
 }
