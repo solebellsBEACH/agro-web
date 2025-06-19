@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Property } from "@/lib/entities/property.entity";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 type PropertyModalProps = {
   open: boolean;
@@ -13,6 +14,13 @@ type PropertyModalProps = {
   onSave: (property: Property) => void;
   initialData?: Partial<Property>;
 };
+
+const BRAZILIAN_STATES = [
+  "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA",
+  "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN",
+  "RS", "RO", "RR", "SC", "SP", "SE", "TO"
+]
+
 
 export function PropertyModal({ open, onClose, onSave, initialData = {} }: PropertyModalProps) {
   const [form, setForm] = useState<Partial<Property>>(initialData);
@@ -45,7 +53,23 @@ export function PropertyModal({ open, onClose, onSave, initialData = {} }: Prope
         <div className="grid gap-4 py-4">
           <Input name="name" placeholder="Nome" value={form.name || ""} onChange={handleChange} />
           <Input name="city" placeholder="Cidade" value={form.city || ""} onChange={handleChange} />
-          <Input name="state" placeholder="Estado" value={form.state || ""} onChange={handleChange} />
+          <Select
+              value={form.state}
+              onValueChange={(value) =>
+                setForm((prev) => ({ ...prev, state: value }))
+              }
+            >
+            <SelectTrigger>
+              <SelectValue placeholder="Selecione o estado" />
+            </SelectTrigger>
+            <SelectContent>
+              {BRAZILIAN_STATES.map((uf) => (
+                <SelectItem key={uf} value={uf}>
+                  {uf}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
           <Input
             name="total_area"
             placeholder="Área total"

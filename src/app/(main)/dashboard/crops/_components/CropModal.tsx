@@ -59,6 +59,8 @@ export function CropModal({ open, onClose, onSave, initialData = {} }: CropModal
             placeholder="Ano da Safra"
             type="number"
             value={form.harvest_year ?? ""}
+            min={2000}
+            max={new Date().getFullYear()+3}
             onChange={handleChange}
           />
           <Input
