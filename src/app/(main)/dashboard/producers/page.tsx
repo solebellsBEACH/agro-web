@@ -14,6 +14,7 @@ import { useProducerStore } from "@/store/producer.store";
 import { producerColumns } from "./_components/columns";
 import { ProducerModal } from "./_components/ProducerModal";
 import { LoadingSpinner } from "@/components/ui/loading-spinner";
+import { ExportButtons } from "@/components/ui/export-button";
 
 export default function ProducersPage() {
   const { producers, fetchProducers, page, lastPage, loading } = useProducerStore();
@@ -70,6 +71,7 @@ export default function ProducersPage() {
           setEditingProducer(null);
           setModalOpen(true);
         }}
+        exportChild={<ExportButtons producers={producers}/>}
       />
 
       {loading ? (
