@@ -14,6 +14,7 @@ import { usePropertyStore } from "@/store/property.store";
 import { propertyColumns as getPropertyColumns } from "./_components/columns";
 import { PropertyModal } from "./_components/PropertyModal";
 import { LoadingSpinner } from "@/components/ui/loading-spinner";
+import { ExportButtons } from "@/components/ui/export-button";
 
 export default function Properties() {
   const { fetchProperties, properties, loading, lastPage, page, total } = usePropertyStore();
@@ -71,6 +72,7 @@ export default function Properties() {
           setEditingProperty(null);
           setModalOpen(true);
         }}
+        exportChild={<ExportButtons properties={properties}/>}
       />
 
       {loading || !properties ? (
@@ -83,6 +85,8 @@ export default function Properties() {
       ) : (
         <p>Nenhuma propriedade encontrada.</p>
       )}
+
+
 
       <PropertyModal
         open={isModalOpen}
