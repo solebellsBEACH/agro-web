@@ -14,6 +14,7 @@ import { useCropStore } from "@/store/crops.store";
 import { cropColumns } from "./_components/columns";
 import { CropModal } from "./_components/CropModal";
 import { LoadingSpinner } from "@/components/ui/loading-spinner";
+import { ExportButtons } from "@/components/ui/export-button";
 
 export default function CropsPage() {
   const { crops, fetchCrops, page, lastPage, loading } = useCropStore();
@@ -70,6 +71,7 @@ export default function CropsPage() {
           setEditingCrop(null);
           setModalOpen(true);
         }}
+        exportChild={<ExportButtons crops={crops}/>}
       />
 
       {loading ? (
